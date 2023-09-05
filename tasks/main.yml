@@ -1,8 +1,7 @@
 ---
 # tasks file for remarkable_templates_and_splashscreen
 - name: Splash Screen - backup
-  ansible.builtin.raw: mv /usr/share/remarkable/suspended.png /usr/share/remarkable/suspended.png.old.$(date "+%Y%m%d-%H%M")
-  creates: /usr/share/remarkable/suspended.png.old.*
+  ansible.builtin.raw: mv /usr/share/remarkable/suspended.png /usr/share/remarkable/suspended.png.old.$(date "+%Y%m%d-%H%M")  # noqa: no-changed-when
 
 - name: Splash Screen - copy to device
   ansible.posix.synchronize:
