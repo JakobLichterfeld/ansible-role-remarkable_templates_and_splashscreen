@@ -1,0 +1,51 @@
+---
+- name: Converge
+  hosts: all
+  gather_facts: false
+  become: true
+
+  pre_tasks:
+    - name: Populate ansible user name
+      ansible.builtin.set_fact:
+        ansible_user: "root"
+
+    - name: Update apt cache
+      ansible.builtin.apt:
+        update_cache: true
+        cache_valid_time: 600
+      when: ansible_os_family == "Debian"
+
+    - name: Wait for systemd to complete initialization.  # noqa: command-instead-of-module
+      ansible.builtin.command: systemctl is-system-running
+      register: systemctl_status
+      until: >
+        'running' in systemctl_status.stdout or
+        'degraded' in systemctl_status.stdout
+      retries: 30
+      delay: 5
+      when: ansible_service_mgr == 'systemd'
+      changed_when: false
+      failed_when: systemctl_status.rc > 1
+
+    - name: Simulate Remarkable File System
+      block:
+        - name: Simulate Templates
+          ansible.builtin.file:
+          path: "/usr/share/remarkable/templates/"
+          state: directory
+          owner: "{{ ansible_user }}"
+          group: "{{ ansible_user }}"
+          mode: '0755'
+
+        - name: Simulate Splash Screen
+          ansible.builtin.file:
+            path: "/usr/share/remarkable/suspended.png"
+            state: touch
+            mode: '0644'
+            modification_time: preserve
+            access_time: preserve
+
+  tasks:
+    - name: Testing role
+      ansible.builtin.include_role:
+        name: jakoblichterfeld.remarkable_templates_and_splashscreen

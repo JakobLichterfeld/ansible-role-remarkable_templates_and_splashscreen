@@ -1,0 +1,7 @@
+.DS_Store
+.vscode
+vault_*
+files/splashscreens_to_copy/*
+files/templates_to_copy/*
+!.gitkeep
+!*/.gitkeep

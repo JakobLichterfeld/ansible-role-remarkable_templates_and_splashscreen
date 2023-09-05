@@ -1,0 +1,19 @@
+---
+# tasks file for remarkable_templates_and_splashscreen
+- name: Splash Screen - backup
+  ansible.builtin.raw: mv /usr/share/remarkable/suspended.png /usr/share/remarkable/suspended.png.old.$(date "+%Y%m%d-%H%M")
+  creates: /usr/share/remarkable/suspended.png.old.*
+
+- name: Splash Screen - copy to device
+  ansible.posix.synchronize:
+    src: "splashscreens_to_copy/suspended.png"
+    dest: "/usr/share/remarkable/suspended.png"
+
+- name: Copy templates and templates.json to device
+  ansible.posix.synchronize:
+    src: "templates_to_copy/"
+    dest: "/usr/share/remarkable/templates/"
+
+- name: Restart xochitl
+  ansible.builtin.raw: systemctl restart xochitl
+  changed_when: true # avoid lint error: no-changed-when

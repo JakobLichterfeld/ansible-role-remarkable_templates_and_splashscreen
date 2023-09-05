@@ -1,0 +1,27 @@
+---
+galaxy_info:
+    role_name: remarkable_templates_and_splashscreen
+    namespace: jakoblichterfeld
+    standalone: true
+    author: JakobLichterfeld
+    description: Change Remarkable Splash Screen and import own templates
+
+    # homepage: https://github.com/JakobLichterfeld/ansible-role-remarkable_templates_and_splashscreen
+    issue_tracker_url: https://github.com/JakobLichterfeld/ansible-role-remarkable_templates_and_splashscreen/issues
+
+    license: MIT
+    min_ansible_version: "2.1"
+
+    platforms:
+        - name: Ubuntu
+          versions:
+              - jammy
+
+    galaxy_tags:
+        - remarkable
+        - remarkable2
+        - remarkabletemplates
+        - remarkablesplashscreen
+        - remarkabletablet
+
+dependencies: []
