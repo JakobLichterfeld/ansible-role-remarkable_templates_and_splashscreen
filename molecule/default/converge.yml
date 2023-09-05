@@ -27,23 +27,21 @@
       changed_when: false
       failed_when: systemctl_status.rc > 1
 
-    - name: Simulate Remarkable File System
-      block:
-        - name: Simulate Templates
-          ansible.builtin.file:
-          path: "/usr/share/remarkable/templates/"
-          state: directory
-          owner: "{{ ansible_user }}"
-          group: "{{ ansible_user }}"
-          mode: '0755'
+    - name: Simulate Remarkable File System - Simulate Templates
+      ansible.builtin.file:
+      path: "/usr/share/remarkable/templates/"
+      state: directory
+      owner: "{{ ansible_user }}"
+      group: "{{ ansible_user }}"
+      mode: '0755'
 
-        - name: Simulate Splash Screen
-          ansible.builtin.file:
-            path: "/usr/share/remarkable/suspended.png"
-            state: touch
-            mode: '0644'
-            modification_time: preserve
-            access_time: preserve
+    - name: Simulate Remarkable File System - Simulate Splash Screen
+      ansible.builtin.file:
+        path: "/usr/share/remarkable/suspended.png"
+        state: touch
+        mode: '0644'
+        modification_time: preserve
+        access_time: preserve
 
   tasks:
     - name: Testing role
