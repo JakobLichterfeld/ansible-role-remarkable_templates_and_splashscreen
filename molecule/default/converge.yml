@@ -45,6 +45,14 @@
             modification_time: preserve
             access_time: preserve
 
+        - name: Simulate Remarkable File System - Simulate Splash Screen Source
+          ansible.builtin.file:
+            path: "splashscreens_to_copy/suspended.png"
+            state: touch
+            mode: '0644'
+            modification_time: preserve
+            access_time: preserve
+
   tasks:
     - name: Testing role
       ansible.builtin.include_role:
