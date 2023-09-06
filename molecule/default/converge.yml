@@ -84,4 +84,4 @@
             state: present
 
   roles:
-    - name: jakoblichterfeld.remarkable_templates_and_splashscreen
+    - role: jakoblichterfeld.remarkable_templates_and_splashscreen
