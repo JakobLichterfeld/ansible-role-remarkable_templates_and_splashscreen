@@ -77,21 +77,7 @@
             modification_time: preserve
             access_time: preserve
 
-        - name: Workaround protocol version mismatch -- is your shell clean? - Backup
-          ansible.builtin.copy:
-            remote_src: true
-            src: ~/.bashrc
-            dest: ~/.bashrc_old
-            owner: "{{ ansible_user }}"
-            group: "{{ ansible_user }}"
-            mode: '0644'
-
-        - name: Workaround protocol version mismatch -- is your shell clean?
-          ansible.builtin.file:
-            path: ~/.bashrc
-            state: absent
-
-        - name: Workaround protocol version mismatch -- is your shell clean?
+        - name: Install rsync
           ansible.builtin.package:
             name:
               - rsync

@@ -5,14 +5,13 @@
 
 - name: Splash Screen - copy to device
   ansible.posix.synchronize:
-    src: "splashscreens_to_copy/suspended.png"
+    src: "files/splashscreens_to_copy/suspended.png"
     dest: "/usr/share/remarkable/suspended.png"
 
 - name: Copy templates and templates.json to device
   ansible.posix.synchronize:
-    src: "templates_to_copy/"
+    src: "files/templates_to_copy/"
     dest: "/usr/share/remarkable/templates/"
 
 - name: Restart xochitl
-  ansible.builtin.raw: systemctl restart xochitl
-  changed_when: true # avoid lint error: no-changed-when
+  ansible.builtin.raw: systemctl restart xochitl # noqa: no-changed-when
