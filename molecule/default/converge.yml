@@ -55,7 +55,6 @@
 
         - name: Simulate Splash Screen Source File
           ansible.builtin.file:
-          
             path: "/home/runner/work/ansible-role-remarkable_templates_and_splashscreen/ansible-role-remarkable_templates_and_splashscreen/molecule/default/splashscreens_to_copy/suspended.png"
             state: touch
             mode: '0644'
