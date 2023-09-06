@@ -83,34 +83,5 @@
               - rsync
             state: present
 
-        - name: Debug
-          ansible.builtin.command:
-            cmd: ls
-          register: debug_output
-
-        - name: Debug output
-          ansible.builtin.debug:
-            var: debug_output
-
-        - name: Create a symbolic link, so Molecule find the role files
-          ansible.builtin.file:
-            src: splashscreens_to_copy
-            dest: molecule/default/splashscreens_to_copy
-            force: true
-            owner: foo
-            group: foo
-            state: link
-
-        - name: Create a symbolic link, so Molecule find the role files
-          ansible.builtin.file:
-            src: templates_to_copy
-            dest: molecule/default/templates_to_copy
-            force: true
-            owner: foo
-            group: foo
-            state: link
-
-  tasks:
-    - name: Testing role
-      ansible.builtin.include_role:
-        name: jakoblichterfeld.remarkable_templates_and_splashscreen
+  roles:
+    - name: jakoblichterfeld.remarkable_templates_and_splashscreen
