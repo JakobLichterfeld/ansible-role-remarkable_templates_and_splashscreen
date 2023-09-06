@@ -88,9 +88,9 @@
             cmd: ls
           register: debug_output
 
-        - name: Debug debug
-          ansible.builtin.msg:
-            msg: {{ debug_output }}
+        - name: Debug output
+          ansible.builtin.debug:
+            var: debug_output
 
         - name: Create a symbolic link, so Molecule find the role files
           ansible.builtin.file:
