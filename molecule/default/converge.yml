@@ -83,6 +83,10 @@
               - rsync
             state: present
 
+        - name: Debug
+          ansible.builtin.command:
+            cmd: ls
+
         - name: Create a symbolic link, so Molecule find the role files
           ansible.builtin.file:
             src: ./splashscreens_to_copy
