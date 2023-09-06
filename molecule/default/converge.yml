@@ -47,7 +47,7 @@
 
         - name: Simulate Splash Screen Source Directory
           ansible.builtin.file:
-            path: "./splashscreens_to_copy"
+            path: "../../splashscreens_to_copy"
             state: directory
             owner: "{{ ansible_user }}"
             group: "{{ ansible_user }}"
@@ -55,7 +55,7 @@
 
         - name: Simulate Splash Screen Source File
           ansible.builtin.file:
-            path: "./splashscreens_to_copy/suspended.png"
+            path: "../../splashscreens_to_copy/suspended.png"
             state: touch
             mode: '0644'
             modification_time: preserve
@@ -63,7 +63,7 @@
 
         - name: Simulate Templates Source Directory
           ansible.builtin.file:
-            path: "./templates_to_copy"
+            path: "../../templates_to_copy"
             state: directory
             owner: "{{ ansible_user }}"
             group: "{{ ansible_user }}"
@@ -71,7 +71,7 @@
 
         - name: Simulate Templates Source File
           ansible.builtin.file:
-            path: "./templates_to_copy/templates.json"
+            path: "../../templates_to_copy/templates.json"
             state: touch
             mode: '0644'
             modification_time: preserve
