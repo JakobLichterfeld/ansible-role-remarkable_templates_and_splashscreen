@@ -1,6 +1,5 @@
 # Ansible Role: Remarkable Templates and Splashscreen
 
-[![CI](https://github.com/JakobLichterfeld/ansible-role-remarkable_templates_and_splashscreen/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/JakobLichterfeld/ansible-role-remarkable_templates_and_splashscreen/actions/workflows/ci.yml)
 [![Publish role on Ansible Galaxy](https://github.com/JakobLichterfeld/ansible-role-remarkable_templates_and_splashscreen/actions/workflows/publish_role_on_ansible_galaxy.yml/badge.svg?branch=main)](https://github.com/JakobLichterfeld/ansible-role-remarkable_templates_and_splashscreen/actions/workflows/publish_role_on_ansible_galaxy.yml)
 
 Change Remarkable Splash Screen and import own templates.
