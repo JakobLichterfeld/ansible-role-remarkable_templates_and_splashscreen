@@ -56,7 +56,6 @@
         - name: Simulate Splash Screen Source File
           ansible.builtin.file:
             path: "./molecule/default/splashscreens_to_copy/suspended.png"
-            ../../splashscreens_to_copy/suspended.png"
             state: touch
             mode: '0644'
             modification_time: preserve
