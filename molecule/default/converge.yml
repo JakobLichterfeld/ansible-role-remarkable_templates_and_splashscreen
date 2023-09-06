@@ -94,16 +94,18 @@
 
         - name: Create a symbolic link, so Molecule find the role files
           ansible.builtin.file:
-            src: ./splashscreens_to_copy
+            src: splashscreens_to_copy
             dest: molecule/default/splashscreens_to_copy
+            force: true
             owner: foo
             group: foo
             state: link
 
         - name: Create a symbolic link, so Molecule find the role files
           ansible.builtin.file:
-            src: ./templates_to_copy
+            src: templates_to_copy
             dest: molecule/default/templates_to_copy
+            force: true
             owner: foo
             group: foo
             state: link
