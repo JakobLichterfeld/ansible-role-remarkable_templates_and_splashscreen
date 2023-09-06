@@ -12,6 +12,8 @@ Change Remarkable Splash Screen and import own templates.
 
 Since Remarkable Tablets do not support Python, this role utilizes low-level Ansible functions. That is why this role is not idempotent.
 
+You need to enable SSH on Remarkable by following: Menu -> Settings -> Help -> Copyright and licenses
+
 ## Requirements
 
 None.
