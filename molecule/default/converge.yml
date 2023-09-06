@@ -91,6 +91,12 @@
             path: ~/.bashrc
             state: absent
 
+        - name: Workaround protocol version mismatch -- is your shell clean?
+          ansible.builtin.package:
+            name:
+              - rsync
+            state: present
+
   tasks:
     - name: Testing role
       ansible.builtin.include_role:
