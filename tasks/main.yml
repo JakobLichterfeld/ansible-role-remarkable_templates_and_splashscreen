@@ -8,6 +8,9 @@
     src: "splashscreens_to_copy/suspended.png"
     dest: "/usr/share/remarkable/suspended.png"
 
+- name: Templates.json - backup
+  ansible.builtin.raw: mv /usr/share/remarkable/templates/templates.json /usr/share/remarkable/templates/templates.json.old.$(date "+%Y%m%d-%H%M")  # noqa: no-changed-when
+
 - name: Copy templates and templates.json to device
   ansible.posix.synchronize:
     src: "templates_to_copy/"
